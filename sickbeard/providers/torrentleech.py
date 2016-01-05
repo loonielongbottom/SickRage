@@ -102,7 +102,7 @@ class TorrentLeechProvider(TorrentProvider):
                     if torrent_table:
                         torrent_rows = torrent_table.find_all('tr')
 
-                    # Continue only if one Release is found
+                    # Continue only if at least one Release is found
                     if len(torrent_rows) < 2:
                         logger.log(u"Data returned from provider does not contain any torrents", logger.DEBUG)
                         continue
@@ -158,7 +158,7 @@ class TorrentLeechProvider(TorrentProvider):
             elif modifier in 'GB':
                 size = size * 1024 ** 3
             elif modifier in 'TB':
-                size = size * 1024**4
+                size = size * 1024 ** 4
             else:
                 raise
         except Exception:
